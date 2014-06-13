@@ -1,0 +1,25 @@
+{
+  {
+    Visible = true,
+    Pixels = {
+      "70Sh+f 07Test   *80 7Test2  *  TestEtc  *f ",
+      "f4Shell+ 0.1f                        ",
+      "f4> 0new window Testf                 ",
+      "f4> 0_f                               ",
+      "ff                                  ",
+      "ff            8 0Testf       e*7- ff       ",
+      "ff            7               f       ",
+      "ff            7 0Hello World!f  f       ",
+      "ff            7               f       ",
+      "ff            7 90Oh Hi77 90Get Out7f f       ",
+      "ff            7               f       ",
+      "ff                                  ",
+      "ff                                  ",
+      "ff                                  ",
+      "ff                                  ",
+    },
+    Index = 1,
+    Name = "Background",
+    BackgroundColour = -1,
+  },
+}

@@ -1,0 +1,66 @@
+--[[
+Shell+ / PrjX
+A multitasking windowed shell
+By Zambonie, For CcJam
+--]]
+
+--[[
+Base Shell.
+--]]
+
+local dir = ""
+local isStartup = true
+local history = {}
+
+local function getArgs(cmd)
+	local a
+	for k, v in pairs(cmd) do
+		a = a..v
+	end
+	return a
+end
+
+local function run(cmd)
+	local path = shell.resolveProgram(cmd[1])
+	if path then
+		table.remove(cmd, 1)
+		shell.run("/"..dir..path, unpack(cmd))
+		else
+		term.setTextColor(colors.red)
+		print("No Such Program Found.")
+	end
+end
+
+local function parseCmd(cmd)
+	local args = {}
+	cmd = " "..cmd
+	for match in string.gmatch(cmd, "[^ \t]+") do
+		args[#args+1] = match
+	end
+	return args
+end
+
+local function start()
+	term.setBackgroundColor(colors.black)
+	term.clear()
+	term.setCursorPos(1,1)
+	term.setTextColor(colors.yellow)
+	print("Shell+ / PrjX")
+end
+
+if isStartup then
+	start()
+	isStartup = false
+end
+
+while true do
+	term.setTextColor(colors.yellow)
+	write(dir.."> ")
+	term.setTextColor(colors.white)
+
+	local cmd = read(nil, history)
+	local args = parseCmd(cmd)
+	history[#history+1] = cmd
+	run(args)
+end
+
